@@ -41,7 +41,12 @@ class AddressesController < ApplicationController
   # POST /addresses.xml
   def create
     @address = Address.new(params[:address])
-
+    vote = params[:address][:vote]
+    if vote == "good customer"
+      @address.vote = true
+    else
+      @address.vote = false
+    end
     respond_to do |format|
       if @address.save
         format.html { redirect_to(@address, :notice => 'Address was successfully created.') }
