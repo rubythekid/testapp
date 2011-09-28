@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @address.name
+%p
+  %b Phone:
+  = @address.phone
+%p
+  %b Email:
+  = @address.email
+%p
+  %b Vote:
+  = @address.vote
+
+= link_to 'Edit', edit_address_path(@address)
+\|
+= link_to 'Back', addresses_path
